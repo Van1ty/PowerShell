@@ -10,4 +10,3 @@ function Get-MailForward {
 catch {
     Write-Error -ErrorRecord $PSitem -ErrorAction Stop
 }
-hi
