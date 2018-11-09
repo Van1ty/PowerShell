@@ -1,11 +1,11 @@
 function Get-MailForward {
     param (
         [parameter(Mandatory=$true)]
-        [string]$UserName
+        [string]$UserPrincipalName
     )
 }
     try {
-    Get-Mailbox | Where-Object {$_.forwardingsmtpaddress -eq ("smtp:"+"$UserName") -or ($_.forwardingaddress -eq ($UserName.split("@")[0]))}
+    Get-Mailbox | Where-Object {$_.forwardingsmtpaddress -eq ("smtp:"+"$UserPrincipalName") -or ($_.forwardingaddress -eq ($UserPrincipalName.split("@")[0]))}
 }
 catch {
     Write-Error -ErrorRecord $PSitem -ErrorAction Stop
